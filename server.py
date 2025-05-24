@@ -62,5 +62,17 @@ def logout():
         )
     )
 
+@app.route("/protected")
+def protected():
+    user = session.get("user")
+    if not user:
+        return redirect(url_for("login"))
+    
+    return render_template(
+        "protected.html",
+        session=user,
+        pretty=json.dumps(user, indent=4)
+    )
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=env.get("PORT", 3000))
