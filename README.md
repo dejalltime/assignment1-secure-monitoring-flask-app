@@ -14,6 +14,14 @@ This is a simple Flask web app demonstrating authentication using Auth0. It incl
 
 ---
 
+## What I Learned
+
+- How to integrate Auth0 with a Python Flask application
+- How to handle authentication tokens and sessions securely
+- The importance of managing redirect URIs and OAuth flows
+
+---
+
 ## Setup Instructions
 
 ### 1. Clone the Repository
@@ -86,8 +94,3 @@ http://localhost:3000
 
 ---
 
-## What I Learned
-
-- How to integrate Auth0 with a Python Flask application
-- How to handle authentication tokens and sessions securely
-- The importance of managing redirect URIs and OAuth flows
