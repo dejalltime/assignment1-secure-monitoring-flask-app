@@ -82,7 +82,7 @@ http://localhost:3000
 
 ---
 
-## 🔐 Routes
+## Routes
 
 | Route        | Description                      |
 |--------------|----------------------------------|
