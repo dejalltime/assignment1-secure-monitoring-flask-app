@@ -10,7 +10,7 @@ This is a simple Flask web app demonstrating authentication using Auth0. It incl
 
 ## Demo
 
-[Watch 5-minute demo on YouTube]()
+[Watch 5-minute demo on YouTube](https://youtu.be/wI68S55YwgA)
 
 ---
 
