@@ -20,7 +20,7 @@ This is a simple Flask web app demonstrating authentication using Auth0. It incl
 
 ```bash
 git clone https://github.com/dejalltime/Lab-1-Auth0.git
-cd flask-auth0-demo
+cd Lab-1-Auth0
 ```
 
 ### 2. Create & Activate Virtual Environment
