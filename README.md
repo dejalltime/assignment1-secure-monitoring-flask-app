@@ -19,7 +19,7 @@ This is a simple Flask web app demonstrating authentication using Auth0. It incl
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/flask-auth0-demo.git
+git clone https://github.com/dejalltime/Lab-1-Auth0.git
 cd flask-auth0-demo
 ```
 
