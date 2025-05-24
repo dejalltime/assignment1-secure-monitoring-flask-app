@@ -66,7 +66,7 @@ def logout():
 def protected():
     user = session.get("user")
     if not user:
-        return redirect(url_for("login"))
+        return redirect(url_for("home"))
     
     return render_template(
         "protected.html",
