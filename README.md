@@ -93,7 +93,3 @@ http://localhost:3000
 | `/logout`    | Logs out and redirects to `/`    |
 
 ---
-
-# assignment1-secure-monitoring-flask-app
-# assignment1-secure-monitoring-flask-app
-# assignment1-secure-monitoring-flask-app
