@@ -15,7 +15,7 @@ This repository contains a Flask application integrated with Auth0 for authentic
 
 A walkthrough of the deployed app, log generation, KQL queries, and alert setup:
 
-[Watch on YouTube](https://youtu.be/wI68S55YwgA)
+[Watch on YouTube](https://youtu.be/MpbIgoLpjzQ)
 
 ---
 
