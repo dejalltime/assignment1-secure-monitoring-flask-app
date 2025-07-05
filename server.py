@@ -7,6 +7,7 @@ from datetime import datetime
 from authlib.integrations.flask_client import OAuth
 from dotenv import find_dotenv, load_dotenv
 from flask import Flask, redirect, render_template, session, url_for, request, jsonify
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 # Load .env
 ENV_FILE = find_dotenv()
@@ -15,12 +16,20 @@ if ENV_FILE:
 
 # Initialize Flask
 app = Flask(__name__)
+app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1)
+
+# Secure the session cookie
+app.config.update(
+    SESSION_COOKIE_SECURE=True,
+    SESSION_COOKIE_SAMESITE='Lax'
+)
+
 app.secret_key = env.get("APP_SECRET_KEY")
 
 # Configure structured logging
 handler = logging.StreamHandler()
 handler.setFormatter(logging.Formatter(
-    '{"time":"%(asctime)s","level":"%(levelname)s","message":%(message)s}'
+    '{"time":"%(asctime)s","level":"%(levelname)s","message":"%(message)s"}'
 ))
 app.logger.setLevel(logging.INFO)
 app.logger.addHandler(handler)
@@ -47,15 +56,15 @@ def home():
 # Login route
 @app.route("/login")
 def login():
-    return oauth.auth0.authorize_redirect(
-        redirect_uri=url_for("callback", _external=True)
-    )
+    redirect_to = url_for("callback", _external=True)
+    app.logger.info(f"Auth0 redirect_uri → {redirect_to}")
+    return oauth.auth0.authorize_redirect(redirect_uri=redirect_to)
 
 # Callback route
 @app.route("/callback", methods=["GET", "POST"])
 def callback():
     token = oauth.auth0.authorize_access_token()
-    userinfo = oauth.auth0.parse_id_token(token)
+    userinfo = oauth.auth0.userinfo(token=token)
     session["user"] = userinfo
     # Log successful login
     app.logger.info(f'login: {{"user_id":"{userinfo.get("sub")}","email":"{userinfo.get("email")}","timestamp":"{datetime.utcnow().isoformat()}"}}')

@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/b3d019b0-c6fd-4f25-ac45-54f25745f266/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/secure-monitoring-app",
+    "appService.deploySubpath": "."
+}

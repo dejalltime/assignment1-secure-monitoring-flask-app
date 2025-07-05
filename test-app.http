@@ -1,0 +1,18 @@
+### 1. Unauthenticated access → /protected
+GET secure-monitoring-app.azurewebsites.net/protected
+###
+
+### 2. Login redirect (manual step)
+GET secure-monitoring-app.azurewebsites.net/login
+###
+
+### 3. Simulate callback with invalid token
+GET secure-monitoring-app.azurewebsites.net/callback?code=BAD_CODE
+###
+
+### 4. (After you sign in via browser) Access protected
+GET secure-monitoring-app.azurewebsites.net/protected
+###
+
+### 5. Health check
+GET secure-monitoring-app.azurewebsites.net/health
